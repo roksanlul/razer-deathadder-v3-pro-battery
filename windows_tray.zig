@@ -345,6 +345,11 @@ fn windowProc(hwnd: c.HWND, message: c.UINT, wparam: c.WPARAM, lparam: c.LPARAM)
 }
 
 pub fn main() !void {
+    const mutex_name = wide("Local\\RazerDeathAdderV3ProBatteryTray");
+    const mutex = c.CreateMutexW(null, c.FALSE, &mutex_name) orelse return error.CreateMutexFailed;
+    defer _ = c.CloseHandle(mutex);
+    if (c.GetLastError() == c.ERROR_ALREADY_EXISTS) return;
+
     const class_name = wide("RazerBatteryTrayWindow");
     const title = wide("Razer DeathAdder V3 Pro Battery");
     const instance = c.GetModuleHandleW(null);
