@@ -1,0 +1,12 @@
+HIDAPI - Multi-Platform library for
+communication with HID devices.
+
+Copyright 2009, Alan Ott, Signal 11 Software.
+All Rights Reserved.
+
+This software may be used by anyone for any reason so
+long as the copyright notice in the source files
+remains intact.
+
+This application statically links HIDAPI 0.14.0. The HIDAPI source is available
+at https://github.com/libusb/hidapi/tree/hidapi-0.14.0.
